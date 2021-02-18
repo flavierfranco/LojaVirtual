@@ -1,0 +1,18 @@
+﻿@using BlueModas.Models
+@inject BlueModas.Libraries.Login.LoginCliente _loginCliente
+
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top bg-dark">
+    <a class="navbar-brand" href="/"> BlueModas</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        @{ 
+            Cliente cliente = _loginCliente.BuscaClienteSessao();
+        }
+
+        <a class="nav-link" asp-controller="CarrinhoCompra" asp-action="Index"><i class="fas fa-shopping-cart"></i> Carrinho</a>
+    </div>
+</nav>

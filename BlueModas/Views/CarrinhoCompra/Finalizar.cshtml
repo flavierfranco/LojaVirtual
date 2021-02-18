@@ -1,0 +1,51 @@
+﻿@using BlueModas.Models
+@using BlueModas.Models.ProdutoAgregador
+@model EnderecoEntrega
+
+@{ 
+    var Endereco = (EnderecoEntrega)ViewBag.Endereco;
+}
+
+<br />
+<br />
+<div class="container text-center" style="font-family:Arial">
+    <h1>Pedido</h1>
+
+    <div class="card">
+        <article class="card-body">
+            <div class="form-group">
+                <label for="Nome">Nome: </label>
+                @Endereco.Nome
+            </div>
+            <div class="form-group">
+                <label for="Nome">Email: </label>
+                @Endereco.Email
+
+            </div>
+            <div class="form-group">
+                <label for="Nome">Telefone: </label>
+                @Endereco.Telefone
+            </div>
+        </article>
+    </div>
+
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Quantidade</th>
+                <th>Valor</th>
+            </tr>
+            @foreach (ProdutoItem produto in ViewBag.Produtos)
+            {
+                <tr>
+                    <td>@produto.Nome</td>
+                    <td>@produto.QuantidadeCarrinhoProduto</td>
+                    <td>R$ @produto.Valor</td>
+                </tr>
+            }
+        </thead>
+    </table>
+</div>
+

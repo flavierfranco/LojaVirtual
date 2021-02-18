@@ -1,0 +1,65 @@
+﻿@using BlueModas.Models
+@model BlueModas.Libraries.Pagination.PaginationEngine<Produto>
+@{
+    string ordem = Context.Request.Query["ordem"];
+
+    string HasNextPage = Model.HasNextPage ? "" : "disabled";
+    string HasPreviousPage = Model.HasPreviousPage ? "" : "disabled";
+
+    string controller = ViewContext.RouteData.Values["controller"].ToString();
+    string action = ViewContext.RouteData.Values["action"].ToString();
+}
+
+@if (Model != null && Model.Elementos.Count() > 0)
+{
+    <h3 id="titlePage" style="text-align:center;margin-bottom:20px;">Listagem de produtos</h3>
+
+    <div class="container container-central" id="code_prod_complex">
+        <a asp-action="@action"
+           asp-controller="@controller"
+           asp-route-pagina="@(Model.PageIndex - 1)"
+           asp-route-ordem="@ordem"
+           asp-fragment="titlePage"
+           class="btn btn-dark @HasPreviousPage pager">
+            &lt;
+        </a>
+        <div class="row container-products">
+            @foreach (Produto produto in Model.Elementos)
+            {
+                <div class="col-md-4">
+                    <figure class="card card-product">
+                            <div class="img-wrap"><img src="@(produto.ImagemProduto.Where(a => a.ProdutoId == produto.Id).Count() == 0 ? "/img/vender-produtos.png" : produto.ImagemProduto.Where(a => a.ProdutoId == produto.Id).ToList()[0].Caminho)"> </div>
+                            <figcaption class="info-wrap">
+                                <h4 class="title">@produto.Nome</h4>
+                                <div class="rating-wrap">
+                                    <ul class="rating-stars">
+                                    </ul>
+                                </div> 
+                            </figcaption>
+                        <div class="bottom-wrap">
+                            <input type="hidden" value="@produto.Id" class="produto-id" />
+                            <a class="btn btn-sm btn-primary float-right btn-adiciona" style="color:white;">Adicionar</a>
+                            <div class="price-wrap h5">
+                                <span class="price-new">@produto.Valor.ToString()</span>
+                            </div> 
+                        </div>
+                    </figure>
+                </div> 
+            }
+        </div> 
+        <a asp-action="@action"
+           asp-controller="@controller"
+           asp-route-pagina="@(Model.PageIndex + 1)"
+           asp-route-ordem="@ordem"
+           asp-fragment="titlePage"
+           class="btn btn-dark @HasNextPage pager">
+            >
+        </a>
+    </div>
+}
+else
+{
+    <div class="container">
+        <p class="alert alert-info">Sem Produtos</p>
+    </div>
+}

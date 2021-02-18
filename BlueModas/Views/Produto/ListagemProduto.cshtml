@@ -1,0 +1,7 @@
+﻿@using BlueModas.Models
+@{ ViewData["Title"] = "ListagemProduto";
+                string slug = ViewContext.RouteData.Values["slug"].ToString(); }
+<br />
+<br />
+
+@await Component.InvokeAsync("Produto");

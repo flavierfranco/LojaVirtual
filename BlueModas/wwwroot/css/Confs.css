@@ -1,0 +1,130 @@
+﻿@charset"UTF-8";
+.sombra{
+    font-family:Arial;
+}
+
+.centralizer{
+    margin:auto;
+    margin-bottom:30px;
+    margin-top:50px;
+}
+.qtd-produto{
+    text-align:center;
+}
+
+.botaoBolado{
+    width:80% !important;
+}
+
+.pedido-continuar,.btn-compra{
+    width:160px;
+    height:90px;
+    font-size:20px !important;
+    display:flex !important;
+    justify-content:center;
+    align-items:center;
+    margin-top:35px;
+}
+.btn-compra{
+    margin:auto;
+    width:200px !important;
+}
+.naosei2{
+    display:flex;
+    justify-content:flex-end;
+    margin:auto;
+}
+
+.central{
+    margin:auto;
+    width:500px;
+    display:flex;
+    justify-content:space-between;
+}
+
+.fix{
+    display:flex;
+    justify-content:space-between;
+}
+.naosei{
+    justify-content:space-between;
+    margin:auto !important;
+}
+.table-borderless{
+    width:350px !important;
+    font-family:Arial;
+}
+.table-borderless>caption {
+    caption-side:top;
+    font-weight:bold;
+    font-size:15pt;
+}
+.container-products{
+    display:flex;
+    justify-content:center;
+    width:100%;
+}
+.container-central{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.pager{
+    width:50px;
+    height:50px;
+    text-align:center;
+    font-size:25pt !important;
+    line-height:30px !important;
+    margin:20px;
+}
+
+.oi{
+    margin-bottom:0px;
+    text-align:center;
+    margin-top:50px;
+}
+input.st{
+    width: 300px;
+    outline: none;
+}
+span.erro{
+    color:red;
+}
+
+.imagens{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+    margin-top:20px;
+}
+.btn-imagens {
+    width: 100%;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    cursor: pointer;
+    border: none;
+    height: 30px;
+    font-weight: bold;
+    font-family: Arial;
+}
+.btn-imagens:focus {
+    outline: 0;
+}
+
+.imagem {
+    display: flex;
+    flex-direction: column;
+    padding: 0px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    width: 160px;
+}
+
+.fixer{
+    padding:20px;
+}
